@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Виктория — врач-косметолог</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f1ec;--ink:#1f2a27;--muted:#76807b;--g:#4f6b5d;--g2:#dfe8e1;--sand:#c9b79c;--card:#fff;--line:#e2ddd3}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:Manrope,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.05}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:fixed;inset:0 0 auto;z-index:50;transition:.3s}
+header.s{background:rgba(243,241,236,.9);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600}
+.logo i{color:var(--g)}
+.links{display:flex;gap:30px;font-size:14px;font-weight:500;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--g);color:#fff;padding:14px 26px;border-radius:100px;font-weight:600;font-size:14px;border:0;cursor:pointer;font-family:inherit;transition:.25s}
+.btn:hover{background:var(--ink);transform:translateY(-2px)}
+.btn.o{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.o:hover{background:var(--ink);color:#fff}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.15fr 1fr;gap:50px;align-items:center;padding-top:70px}
+.eb{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--g);font-weight:700}
+.hero h1{font-size:clamp(46px,6.6vw,88px);margin:18px 0 20px}
+.hero h1 em{color:var(--g);font-style:italic}
+.hero p{color:var(--muted);font-size:17px;max-width:470px;margin-bottom:32px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.pt{aspect-ratio:4/5;border-radius:220px 220px 28px 28px;background:linear-gradient(165deg,#e8efe9,#b7c9bc 60%,#6f8c7b);position:relative;overflow:hidden;box-shadow:0 40px 80px -40px rgba(79,107,93,.7)}
+.pt:before{content:"В";position:absolute;inset:0;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:220px;color:rgba(255,255,255,.75)}
+.big{position:absolute;left:18px;bottom:18px;right:18px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-radius:22px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.big b{font-family:'Cormorant Garamond',serif;font-size:46px;color:var(--g);line-height:1}
+.big span{font-size:13px;color:var(--muted);max-width:150px;text-align:right}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:28px}
+.fact b{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--g);display:block;line-height:1;margin-bottom:8px}
+.fact span{color:var(--muted);font-size:14px}
+section{padding:90px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+.sh h2{font-size:clamp(38px,5vw,64px)}
+.sh p{color:var(--muted);max-width:380px}
+.pl{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pi{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;transition:.25s}
+.pi:hover{border-color:var(--g)}
+.pi h3{font-size:25px;margin-bottom:2px}
+.pi small{color:var(--muted);font-size:13px}
+.pi .p{font-family:'Cormorant Garamond',serif;font-size:28px;white-space:nowrap;color:var(--g)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hw{background:var(--g);color:#fff;border-radius:28px;padding:32px}
+.hw:nth-child(2){background:var(--ink)}
+.hw:nth-child(3){background:var(--sand);color:var(--ink)}
+.hw b{font-family:'Cormorant Garamond',serif;font-size:54px;display:block;line-height:1;margin-bottom:14px;opacity:.9}
+.hw p{font-size:15px;opacity:.9}
+.bk{display:grid;grid-template-columns:1fr 1.1fr;gap:20px}
+.pn{background:var(--card);border:1px solid var(--line);border-radius:32px;padding:38px}
+.pn.d{background:var(--ink);color:#fff;border:0}
+.pn h2{font-size:clamp(36px,4.5vw,56px);margin-bottom:14px}
+.pn.d p{color:#b8c2bd}
+.ct{margin-top:28px;display:grid;gap:14px;font-size:15px}
+.lb{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;display:block;margin:0 0 8px}
+select,input{width:100%;padding:15px 16px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;font-size:15px;margin-bottom:16px;outline:none}
+select:focus,input:focus{border-color:var(--g)}
+.ds{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-bottom:18px}
+.ds::-webkit-scrollbar{display:none}
+.dd{min-width:60px;padding:11px 0;border-radius:16px;border:1px solid var(--line);text-align:center;cursor:pointer;transition:.2s}
+.dd small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase}
+.dd b{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600}
+.dd.on{background:var(--g);border-color:var(--g);color:#fff}
+.dd.on small{color:#dfe8e1}
+.dd.off{opacity:.3;pointer-events:none}
+.ts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+.tt{padding:11px 0;text-align:center;border-radius:13px;border:1px solid var(--line);cursor:pointer;font-size:14px;font-weight:500}
+.tt.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.tt.x{opacity:.28;pointer-events:none;text-decoration:line-through}
+.sm{display:flex;justify-content:space-between;align-items:center;margin:4px 0 14px}
+.sm b{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--g)}
+.pn .btn{width:100%;justify-content:center;padding:17px}
+.ok{display:none;text-align:center;padding:24px 0}
+.ok .ic{width:70px;height:70px;border-radius:50%;background:var(--g2);color:var(--g);display:grid;place-items:center;font-size:30px;margin:0 auto 14px}
+.ok h2{font-size:38px;margin-bottom:8px}
+.ok p{color:var(--muted)}
+.ok .st{display:grid;gap:10px;margin-top:20px;text-align:left}
+.ok .st div{display:flex;gap:12px;font-size:14px;color:#55615b}
+.ok .st b{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--g2);color:var(--g);display:grid;place-items:center;font-size:12px}
+footer{padding:36px 0 50px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.rv{opacity:0;transform:translateY(28px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:900px){.links{display:none}.hero,.pl,.how,.bk,.facts{grid-template-columns:1fr}.hero{padding-top:100px}.pt{max-width:360px;margin:0 auto;width:100%}.pn{padding:26px 20px;border-radius:26px}section{padding:64px 0}.ts{grid-template-columns:repeat(3,1fr)}.nav .btn{padding:11px 18px}}
+</style>
+</head>
+<body>
+<header id="h"><div class="wrap nav">
+<a href="#" class="logo">Виктория<i>.</i></a>
+<nav class="links"><a href="#pr">Процедуры</a><a href="#how">Как проходит</a><a href="#bk">Запись</a></nav>
+<a href="#bk" class="btn">Записаться</a>
+</div></header>
+
+<div class="wrap hero">
+<div class="rv">
+<div class="eb">Врач-косметолог</div>
+<h1>Красота, в которой есть <em>опыт</em></h1>
+<p>26 лет в косметологии. Подбираю уход и процедуры индивидуально: без лишнего, с понятным планом и честными рекомендациями.</p>
+<div class="cta"><a href="#bk" class="btn">Выбрать время →</a><a href="#pr" class="btn o">Процедуры и цены</a></div>
+</div>
+<div class="pt rv"><div class="big"><b>26 лет</b><span>в косметологии, врачебный подход</span></div></div>
+</div>
+
+<div class="wrap facts">
+<div class="fact rv"><b>26</b><span>лет опыта в косметологии</span></div>
+<div class="fact rv"><b>1:1</b><span>индивидуальный план для каждой пациентки</span></div>
+<div class="fact rv"><b>24/7</b><span>онлайн-запись без переписки</span></div>
+</div>
+
+<section id="pr"><div class="wrap">
+<div class="sh rv"><h2>Процедуры</h2><p>Нажмите на процедуру, и она сразу подставится в запись. Цены в демо примерные.</p></div>
+<div class="pl" id="pl"></div>
+</div></section>
+
+<section id="how" style="padding-top:0"><div class="wrap">
+<div class="sh rv"><h2>Как это работает</h2></div>
+<div class="how">
+<div class="hw rv"><b>01</b><p>Выбираете процедуру или консультацию, если не уверены, что нужно</p></div>
+<div class="hw rv"><b>02</b><p>Выбираете удобные день и время из свободных, без переписки</p></div>
+<div class="hw rv"><b>03</b><p>За день до визита вам автоматически приходит напоминание</p></div>
+</div>
+</div></section>
+
+<section id="bk" style="padding-top:0"><div class="wrap bk">
+<div class="pn d rv">
+<div class="eb" style="color:#a9c2b3">Онлайн-запись</div>
+<h2 style="margin-top:14px">Запишитесь за минуту</h2>
+<p>Не знаете, какая процедура нужна? Выберите «Консультация», и мы подберём вместе.</p>
+<div class="ct"><div>⌖ Адрес клиники</div><div>◷ Пн–Сб, 10:00–19:00</div><div>✆ +7 (900) 000-00-00</div></div>
+</div>
+<div class="pn rv">
+<form id="f">
+<span class="lb">Процедура</span><select id="sv"></select>
+<span class="lb">День</span><div class="ds" id="ds"></div>
+<span class="lb">Время</span><div class="ts" id="ts"></div>
+<input id="nm" placeholder="Имя" required>
+<input id="ph" type="tel" placeholder="Телефон или Telegram" required>
+<div class="sm"><span>Стоимость</span><b id="tt"></b></div>
+<button class="btn">Записаться</button>
+</form>
+<div class="ok" id="ok"><div class="ic">✓</div><h2>Вы записаны</h2><p id="okt"></p>
+<div class="st"><div><b>1</b>Виктория получила уведомление</div><div><b>2</b>Вам придёт подтверждение</div><div><b>3</b>За день до визита придёт напоминание</div></div></div>
+</div>
+</div></section>
+
+<footer class="wrap"><span>© Виктория, врач-косметолог</span><span>Демо-версия · whysafe.ru</span></footer>
+
+<script>
+const P=[["Консультация","30 мин",1500],["Чистка лица","90 мин",4500],["Пилинг","60 мин",5000],["Биоревитализация","60 мин",9500],["Мезотерапия","60 мин",7500],["Массаж лица","45 мин",3500],["Контурная пластика","60 мин",14000],["Уходовая процедура","75 мин",4000]];
+const f=n=>n.toLocaleString('ru-RU')+' ₽';
+pl.innerHTML=P.map((p,i)=>`<div class="pi rv" data-i="${i}"><div><h3>${p[0]}</h3><small>${p[1]}</small></div><div class="p">${i==0?'':'от '}${f(p[2])}</div></div>`).join('');
+sv.innerHTML=P.map((p,i)=>`<option value="${i}">${p[0]} · ${p[1]}</option>`).join('');
+const upd=()=>{const p=P[sv.value];tt.textContent=(sv.value==0?'':'от ')+f(p[2])};sv.onchange=upd;upd();
+pl.querySelectorAll('.pi').forEach(e=>e.onclick=()=>{sv.value=e.dataset.i;upd();document.getElementById('bk').scrollIntoView({behavior:'smooth'})});
+const wd=['вс','пн','вт','ср','чт','пт','сб'];let D=null,T=null;
+const days=[...Array(14)].map((_,i)=>{const d=new Date();d.setDate(d.getDate()+i+1);return d});
+ds.innerHTML=days.map((d,i)=>`<div class="dd ${d.getDay()==0?'off':''}" data-i="${i}"><small>${wd[d.getDay()]}</small><b>${d.getDate()}</b></div>`).join('');
+function tms(i){T=null;ts.innerHTML=["10:00","11:00","12:00","13:30","15:00","16:00","17:00","18:00"].map((t,k)=>`<div class="tt ${(i*2+k)%4==3?'x':''}">${t}</div>`).join('');ts.querySelectorAll('.tt').forEach(t=>t.onclick=()=>{ts.querySelectorAll('.tt').forEach(x=>x.classList.remove('on'));t.classList.add('on');T=t.textContent})}
+function pick(el){ds.querySelectorAll('.dd').forEach(x=>x.classList.remove('on'));el.classList.add('on');D=days[el.dataset.i];tms(+el.dataset.i)}
+ds.querySelectorAll('.dd').forEach(d=>d.onclick=()=>pick(d));pick(ds.querySelector('.dd:not(.off)'));
+document.getElementById('f').onsubmit=e=>{e.preventDefault();if(!T)return alert('Выберите время');e.target.style.display='none';ok.style.display='block';okt.textContent=`${nm.value}, ${P[sv.value][0].toLowerCase()} — ${D.toLocaleDateString('ru-RU',{day:'numeric',month:'long'})} в ${T}.`};
+addEventListener('scroll',()=>h.classList.toggle('s',scrollY>20));
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
